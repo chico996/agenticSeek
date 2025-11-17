@@ -11,7 +11,7 @@ if [ -z "$WORK_DIR" ]; then
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    dir_size_bytes=$(du -s -b "$WORK_DIR" 2>/dev/null | awk '{print $1}')
+    dir_size_bytes=$(du -s "$WORK_DIR" 2>/dev/null | awk '{print $1 * 1024}')
 else
     dir_size_bytes=$(du -s --bytes "$WORK_DIR" 2>/dev/null | awk '{print $1}')
 fi
